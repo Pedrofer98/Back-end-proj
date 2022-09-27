@@ -1,0 +1,24 @@
+{
+  "name": "back-end-proj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pedrofer98/Back-end-proj.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pedrofer98/Back-end-proj/issues"
+  },
+  "homepage": "https://github.com/Pedrofer98/Back-end-proj#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
