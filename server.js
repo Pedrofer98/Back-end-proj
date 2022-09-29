@@ -8,8 +8,14 @@ const app = express();
 
 const server = http.createServer(app);
 
+app.use('/controllers', express.static('controllers'))
+
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.sendFile('views/home.html', { root: __dirname});
+});
+
+app.get('/players', (req, res) => {
+    res.sendFile('views/player-search.html', { root: __dirname});
 });
 
 server.listen(port, hostname, () => {
