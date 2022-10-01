@@ -10,8 +10,11 @@ const server = http.createServer(app);
 
 app.use('/controllers', express.static('controllers'))
 
+app.set('view engine', 'ejs');
+
 app.get('/', (req, res) => {
-    res.sendFile('views/home.html', { root: __dirname});
+    res.render('home');
+    // res.sendFile('views/home.html', { root: __dirname});
 });
 
 app.get('/players', (req, res) => {
