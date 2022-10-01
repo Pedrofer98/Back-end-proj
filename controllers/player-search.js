@@ -15,15 +15,26 @@ function playersearch(){
         console.log(data)
         //console.log(data.0)
         const topThreeArray = data.data.slice(0, 3);
-        document.querySelector('.card-container').innerHTML = '';
-        topThreeArray.forEach(results);
+        const aHtML = new Array();
+
+        for(let i=0; i<topThreeArray.length; i++) {
+            aHtML.push(results(topThreeArray[i]));
+        }
+
+        Promise.all(aHtML).then(html => {
+            console.log(html);
+            document.querySelector('.card-container').innerHTML = html.join('');
+        });
+
+        //document.querySelector('.card-container').innerHTML = '';
+        //topThreeArray.forEach(async data => await results(data));
         //results(topThreeArray[0])
      })
 }
 
-function results(data){
+async function results(data){
     console.log(data);
-    return document.querySelector('.card-container').innerHTML +=`
+    return `
         <div class="card">
             <div class="card-body">
                 <img src="${data.image_path}" alt="" class="card-image"/>
@@ -33,23 +44,21 @@ function results(data){
                     <li>Nationality: ${data.nationality}</li>
                     <li>Birth date: ${data.birthdate}</li>
                     <li>Height: ${data.height}</li>
-                    <li>Team: ${getTeam(data.team_id)}</li>
+                    <li>Team: ${await getTeam(data.team_id)}</li>
                 </ul>
             </div>
         </div>
         `
 }
 
-function getTeam(id){
+async function getTeam(id){
     console.log(id);
     if (id == null) {
         return "no team";
     } else {
-        fetch(`https://soccer.sportmonks.com/api/v2.0/teams/${id}?api_token=ljGMMrxuRdt4Uq0FHzS6k9KhmsOjCE5EwwdMMPZ4xQYW96KIzmPAtIY6Vnid`)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data.data.name);
-            return data.data.name;
-        })
+        let response = await fetch(`https://soccer.sportmonks.com/api/v2.0/teams/${id}?api_token=ljGMMrxuRdt4Uq0FHzS6k9KhmsOjCE5EwwdMMPZ4xQYW96KIzmPAtIY6Vnid`);
+        let data = await response.json();
+        console.log(data.data.name);
+        return data.data.name;
     }
 }
