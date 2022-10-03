@@ -1,3 +1,4 @@
+// Declarations
 const http = require('http');
 
 const hostname = '127.0.0.1';
@@ -12,14 +13,18 @@ app.use('/controllers', express.static('controllers'))
 
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
-    res.render('home');
-    // res.sendFile('views/home.html', { root: __dirname});
-});
+// Nav Bar
+    app.get('/', (req, res) => {
+        res.render('home');
+    });
 
-app.get('/players', (req, res) => {
-    res.sendFile('views/player-search.html', { root: __dirname});
-});
+    app.get('/profile', (req, res) => {
+        res.render('profile');
+    });
+
+    app.get('/players', (req, res) => {
+        res.render('player-search');
+    });
 
 server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
