@@ -1,4 +1,4 @@
-// Puts API in a variable
+// Puts API in a variable test
 const leagueStatsAPI = 'https://soccer.sportmonks.com/api/v2.0/standings/season/19735?api_token=ljGMMrxuRdt4Uq0FHzS6k9KhmsOjCE5EwwdMMPZ4xQYW96KIzmPAtIY6Vnid';
 
 // Calls API and turns it into json
