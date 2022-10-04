@@ -9,11 +9,10 @@ window.onload=function() {
 //Take search input and search api for results
 function playersearch(){
     let player = document.getElementById('player-search').value.trim()
-    fetch(`https://soccer.sportmonks.com/api/v2.0/players/search/${player}?api_token=ljGMMrxuRdt4Uq0FHzS6k9KhmsOjCE5EwwdMMPZ4xQYW96KIzmPAtIY6Vnid`)
+    fetch(`https://soccer.sportmonks.com/api/v2.0/players/search/${player}?api_token=ljGMMrxuRdt4Uq0FHzS6k9KhmsOjCE5EwwdMMPZ4xQYW96KIzmPAtIY6Vnid&include=stats`)
     .then(response => response.json())
     .then(data => {
         console.log(data)
-        //console.log(data.0)
         const topThreeArray = data.data.slice(0, 3);
         const aHtML = new Array();
 
@@ -33,26 +32,35 @@ function playersearch(){
 }
 
 async function results(data){
-    console.log(data);
+    //console.log(data);
+    console.log(data.stats.data[0].goals);
     return `
         <div class="card">
             <div class="card-body">
                 <img src="${data.image_path}" alt="" class="card-image"/>
                 <h3 class="card-title">${data.fullname}</h3>
-                <ul>
-                    <li>Birth country: ${data.birthcountry}</li>
-                    <li>Nationality: ${data.nationality}</li>
-                    <li>Birth date: ${data.birthdate}</li>
-                    <li>Height: ${data.height}</li>
-                    <li>Team: ${await getTeam(data.team_id)}</li>
-                </ul>
+                    <ul>
+                        <li>Birth country: ${data.birthcountry}</li>
+                        <li>Nationality: ${data.nationality}</li>
+                        <li>Birth date: ${data.birthdate}</li>
+                        <li>Height: ${data.height}</li>
+                        <li>Team: ${await getTeam(data.team_id)}</li>
+                    </ul>
+                <h4>Stats</h4>
+                    <ul>
+                        <li>Goals: ${await getStats(goals)}</li>
+                        <li>Assists: ${await getStats(assists)}</li>
+                        <li>Birth date: </li>
+                        <li>Height: </li>
+                        
+                    </ul>
             </div>
         </div>
         `
 }
 
 async function getTeam(id){
-    console.log(id);
+    //console.log(id);
     if (id == null) {
         return "no team";
     } else {
@@ -60,5 +68,15 @@ async function getTeam(id){
         let data = await response.json();
         console.log(data.data.name);
         return data.data.name;
+    }
+}
+
+async function getStats(input){
+    console.log(input);
+    if (data.stats.data[0] = undefined) {
+        return "none";
+    } else {
+        return `data.stats.data[0].${input}`;
+       
     }
 }
