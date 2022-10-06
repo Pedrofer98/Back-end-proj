@@ -34,3 +34,11 @@ async function stats(data) {
             </tr>
           `
 };
+
+// Switch Button Experiment
+// <div class="form-switch">
+// <input class="form-check-input text-center" type="checkbox" name="favTeamRadio" onchange="classChangeType(this)" id="${data.team_name}">
+// <label class="form-check-label" for="${data.team_name}">
+//   <h4>${data.team_name}</h4>
+// </label>
+// </div>

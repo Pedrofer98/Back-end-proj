@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     const row = [
         {header: 'Position'},
         {header: 'Team'},
-        {header: 'Points'},
+        {header: 'Pts'},
         {header: 'W'},
         {header: 'D'},
         {header: 'L'},
