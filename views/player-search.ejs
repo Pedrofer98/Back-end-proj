@@ -1,84 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Search</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
-    <script src="/controllers/player-search.js"></script>
-</head>
-
+  <!-- Head--> <%- include('./partials/head.ejs') %>
 <body>
-
-<!-- Start of Nav Bar -->
-<section class="hero is-info">
-  <div class="hero-head">
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="logo" href="/">
-            <img src="https://d2cx26qpfwuhvu.cloudfront.net/aberdeen/wp-content/uploads/2021/07/12162213/210706_cinch_premiership_logo_web_01-1024x576.jpg"
-            style="width: 250px;">
-          </a>
-          <span class="navbar-burger burger" data-target="navbarMenu"></span>
-        </div>
-        <div id="navbarMenu" class="navbar-menu">
-          <div class="navbar-end">
-            <span class="navbar-item">
-              <a class="button is-white is-outlined" href="/">
-                <span class="icon">
-                  <i class="fa fa-home"></i>
-                </span>
-                <span><a href="/">&nbsp Home</a></span>
-              </a>
-            </span>
-            <span class="navbar-item">
-              <a class="button is-white is-outlined" href="/profile">
-                <span class="icon">
-                  <i class="fa fa-book"></i>
-                </span>
-                <span><a href="/profile">&nbsp Profile</a></span>
-              </a>
-            </span>
-            <span class="navbar-item">
-              <a class="button is-white is-outlined" href="/players">
-                <span class="icon">
-                  <i class="fa fa-search"></i>
-                </span>
-                <span><a href="/players">&nbsp Player Search</a></span>
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
-</section>
-<!-- End of Nav Bar -->
+<!-- Navbar--> <%- include('./partials/nav.ejs') %>
 
 <!-- Start of Content -->
 <section class="content">
-    <div>
-        <br>
-        <h1><center>Player Search</center></h1>
-        <div>
-            <center>
-            <input type="text" id="player-search">
-            <button type="button" id="search-btn">Search</button>
-            </center>
-        </div>
-        <br>
-        <div class="results">
-            <h2><center>Search Results</center></h2>
-            <div class="card-container" id="card-container">
-            </div>
-        </div>
+  <div>
+    <h1 class="text-center">Player Search</h1>
+      <div class="text-center">
+        <input type="text" id="player-search">
+        <button type="button" id="search-btn">Search</button>
+      </div>
+    <div class="results">
+      <h2 class="text-center">Search Results</h2>
+      <div class="card-container" id="card-container"></div>
     </div>
+  </div>
 </section>
 <!-- End of Content -->
 
+<!-- Footer--><%- include('./partials/foot.ejs') %>
+<script src="/controllers/player-search.js"></script>
 </body>
 </html>
