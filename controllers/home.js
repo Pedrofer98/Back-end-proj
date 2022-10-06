@@ -22,12 +22,15 @@ async function stats(data) {
   console.log(data);
   return  `
             <tr>
-              <td>${data.position}</td>
-              <td>${data.team_name}</td>
-              <td>${data.points}</td>
-              <td>${data.overall.won}</td>
-              <td>${data.overall.draw}</td>
-              <td>${data.overall.lost}</td>
+              <td class="text-center"><h4>${data.position}</h4></td>
+              <td class="text-center"><h4><a href="">${data.team_name}</a></h4></td>
+              <td class="text-center"><h4>${data.points}</h4></td>
+              <td class="text-center"><h4>${data.overall.won}</h4></td>
+              <td class="text-center"><h4>${data.overall.draw}</h4></td>
+              <td class="text-center"><h4>${data.overall.lost}</h4></td>
+              <td class="text-center"><h4>${data.overall.goals_scored}</h4></td>
+              <td class="text-center"><h4>${data.overall.goals_against}</h4></td>
+              <td class="text-center"><h4>${data.total.goal_difference}</h4></td>
             </tr>
           `
 };
