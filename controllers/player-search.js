@@ -26,6 +26,7 @@ function playersearch(){
 }
 async function results(data){
     //console.log(data);
+    intoPlHistArray(data);
     var statsResult = stats(data);
     if (statsResult == undefined){
         return '';
@@ -48,6 +49,7 @@ async function results(data){
             </div>
         </div>
         `
+        
 }
 async function getTeam(id){
     //console.log(id);
@@ -69,7 +71,7 @@ async function getTeam(id){
 // //     }
 function stats(data){
     const stats = data.stats.data
-    console.log(stats);
+    //console.log(stats);
     if (stats.length == 0 ){
         return undefined;
     }
@@ -83,3 +85,14 @@ function stats(data){
 //     <li>Birth date: </li>
 //     <li>Height: </li>
 </ul> */}
+const playerHistory = [];
+
+function intoPlHistArray(data ) {
+    //const playerHistory = [];
+    playerHistory.unshift(data);
+    console.log(playerHistory);
+     if (playerHistory.length > 9 ){
+        playerHistory.pop() // how do i write until the array length is = 10, ultimately i want to keep the lenght at 10, and when you search up a new player, the last entry is popped so the new one can be appended.
+     };
+     //console.log(playerHistory);// to see the result after i search players.
+}
