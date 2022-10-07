@@ -1,85 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
-    <script src="/controllers/home.js"></script>
-</head>
-
+  <!-- Head--> <%- include('./partials/head.ejs') %>
 <body>
+<!-- Navbar--> <%- include('./partials/nav.ejs') %>
 
-<!-- Start of Nav Bar -->
-<section class="hero is-info">
-  <div class="hero-head">
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          <a class="logo" href="/">
-            <img src="https://d2cx26qpfwuhvu.cloudfront.net/aberdeen/wp-content/uploads/2021/07/12162213/210706_cinch_premiership_logo_web_01-1024x576.jpg"
-            style="width: 250px;">
-          </a>
-          <span class="navbar-burger burger" data-target="navbarMenu"></span>
-        </div>
-        <div id="navbarMenu" class="navbar-menu">
-          <div class="navbar-end">
-            <span class="navbar-item">
-              <a class="button is-white is-outlined" href="/">
-                <span class="icon">
-                  <i class="fa fa-home"></i>
-                </span>
-                <span><a href="/">&nbsp Home</a></span>
-              </a>
-            </span>
-            <span class="navbar-item">
-              <a class="button is-white is-outlined" href="/profile">
-                <span class="icon">
-                  <i class="fa fa-book"></i>
-                </span>
-                <span><a href="/profile">&nbsp Profile</a></span>
-              </a>
-            </span>
-            <span class="navbar-item">
-              <a class="button is-white is-outlined" href="/players">
-                <span class="icon">
-                  <i class="fa fa-search"></i>
-                </span>
-                <span><a href="/players">&nbsp Player Search</a></span>
-              </a>
-            </span>
-          </div>
+<!-- Top Image Start-->
+<header class="container">
+  <div class="row"><div class="span4"></div>
+    <img src="https://e0.365dm.com/22/01/1600x900/skysports-spfl-scot-prem-return_5639353.jpg?20220113152820"
+    class="img-responsive" /><div class="span4"></div>
+  </div>
+  <div class="text-center my-5">
+    <h1 class="text-black fs-1 fw-bolder">G o a l G e t t e r s</h1>
+    <h3 class="text-black-50 mb-1">a Scottish Professional Football League tool</h3>
+    <h4 class="mb-1">Follow your favorite SPFL team or player and stay up to date with the latest results and stats.</h4>
+  </div>
+</header>
+<!-- Top Image End --> 
+
+<!-- Optional Content Under Header Start -->
+<!-- <section class="py-5">
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <h3>Test</h3>
+        <p class="lead">Test</p>
+        <p class="mb-0">Test</p>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- Optional Content Under Header End -->
+
+<!-- Middle Image Start -->
+<div class="row"><div class="span4"></div>
+    <img src="https://wwwimage-us.pplusstatic.com/base/files/seo/spfl_social_1200x627.jpg" 
+      class="img-responsive" /><div class="span4"></div>
+</div>
+<!-- Middle Image End -->
+
+<!-- Botttom Content Start -->
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+      <h1 class="text-center">League Table 2022-2023</h1>
+        <div class="stats-container" id="stats-container" style="overflow-x:auto;">
+          <table>
+            <tr>
+              <% if (row.length > 0) { %>
+              <% row.forEach(row => { %>
+                <th><h3 class="text-center">&nbsp<%= row.header %>&nbsp</h3></th>
+              <% }) %>
+              <% } %>
+            </tr>
+              <tbody id="stats"></tbody>
+          </table>
         </div>
       </div>
-    </nav>
-  </div>
-</section>
-<!-- End of Nav Bar -->
-
-<!-- Start of Content -->
-<section class="content">
-  <div class="table is-centered">
-  <br>
-  <h1><center>League Table 2022-2023</center></h1>
-    <div class="stats-container" id="stats-container">
-      <table>
-        <tr>
-          <th for="position">Position</th>
-          <th for="team">Team</th>
-          <th for="points">Points</th>
-          <th for="wins">W</th>
-          <th for="draws">D</th>
-          <th for="losses">L</th>
-        </tr>
-        <tbody id="stats"></tbody>
-      </table>
     </div>
   </div>
 </section>
-<!-- End of Content -->
+<!-- Botttom Content End -->
 
+<!-- Footer--><%- include('./partials/foot.ejs') %>
+<script src="/controllers/home.js"></script>
 </body>
 </html>
