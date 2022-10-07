@@ -6,6 +6,7 @@ const port = 3000;
 
 const express = require('express');
 const app = express();
+const db = require('./models')
 
 const server = http.createServer(app);
 
@@ -24,6 +25,14 @@ app.set('view engine', 'ejs');
 
     app.get('/players', (req, res) => {
         res.render('player-search');
+    });
+
+    app.get('/create-account', (req, res) => {
+        res.render('create-account');
+    });
+
+    app.get('/create', (req, res) => {
+        res.render('create-account');
     });
 
 server.listen(port, hostname, () => {
