@@ -22,6 +22,13 @@ async function stats(data) {
   console.log(data);
   return  `
             <tr>
+              <td class="text-center">
+                <div class="form-switch">
+                  <form>
+                    <input type="checkbox" class="form-check-input" id="myButton" value="NO" onclick="Buttontoggle(${data.team_id});">
+                  </form>
+                </div>
+              </td>
               <td class="text-center"><h4>${data.position}</h4></td>
               <td class="text-center"><h4><a href="">${data.team_name}</a></h4></td>
               <td class="text-center"><h4>${data.points}</h4></td>
@@ -35,10 +42,7 @@ async function stats(data) {
           `
 };
 
-// Switch Button Experiment
-// <div class="form-switch">
-// <input class="form-check-input text-center" type="checkbox" name="favTeamRadio" onchange="classChangeType(this)" id="${data.team_name}">
-// <label class="form-check-label" for="${data.team_name}">
-//   <h4>${data.team_name}</h4>
-// </label>
-// </div>
+function Buttontoggle(teamID) {
+  
+
+};
