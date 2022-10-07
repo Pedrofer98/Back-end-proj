@@ -5,6 +5,7 @@ const router = express.Router();
 // Routes
 router.get('/', (req, res) => {
     const row = [
+        {header: 'Follow'},
         {header: 'Position'},
         {header: 'Team'},
         {header: 'Pts'},
