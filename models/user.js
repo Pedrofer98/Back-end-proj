@@ -1,26 +1,16 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
-  User.init({
-    username: DataTypes.STRING,
-    password: DataTypes.STRING,
-    favTeams: DataTypes.STRING,
-    favPlayers: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'User',
-  });
-  return User;
-};
+//pg-promise
+const config = {
+  host: 'localhost',
+  port: 5432,
+  database: 'postgres',
+  user: 'postgres',
+  password: 'db1'
+}
+
+const pgp = require("pg-promise")();
+const db = pgp("postgres://postgres:db1@localhost:5432/project");
+
+//db.any('INSERT INTO users VALUES ('Bob, test')
+db.any("SELECT * from USERS").then((Users) => console.log(Users));
+
+pgp.end();
