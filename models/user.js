@@ -1,4 +1,6 @@
 //pg-promise
+const userData = require('../front-end-js/create-account')
+
 const config = {
   host: 'localhost',
   port: 5432,
@@ -10,7 +12,14 @@ const config = {
 const pgp = require("pg-promise")();
 const db = pgp("postgres://postgres:db1@localhost:5432/project");
 
-//db.any('INSERT INTO users VALUES ('Bob, test')
-db.any("SELECT * from USERS").then((Users) => console.log(Users));
+function addRow(){
+  db.none("INSERT INTO users (username, password) VALUES (${username},${password})")
+}
+addRow()
+
+module.exports = {
+  addRow
+
+}
 
 pgp.end();
