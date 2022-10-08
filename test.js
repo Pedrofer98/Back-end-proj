@@ -1,10 +1,9 @@
-//pg-promise
 const config = {
-  host: 'localhost',
-  port: 5432,
-  database: 'postgres',
-  user: 'postgres',
-  password: 'db1'
+    host: 'localhost',
+    port: 5432,
+    database: 'postgres',
+    user: 'postgres',
+    password: 'db1'
 }
 
 const pgp = require("pg-promise")();
