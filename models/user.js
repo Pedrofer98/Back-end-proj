@@ -1,5 +1,4 @@
 //pg-promise
-const userData = require('../front-end-js/create-account')
 
 const config = {
   host: 'localhost',
@@ -12,14 +11,13 @@ const config = {
 const pgp = require("pg-promise")();
 const db = pgp("postgres://postgres:db1@localhost:5432/project");
 
-function addRow(){
-  db.none("INSERT INTO users (username, password) VALUES (${username},${password})")
+function addRow(x, y){
+  db.none("INSERT INTO users (username, password) VALUES (`${x}`,`${y}`)") // do  correct the syntax for the template literal
+  // ^^ to insert the username into the DB
 }
-addRow()
 
-module.exports = {
-  addRow
+//exports = addRow();
 
-}
+
 
 pgp.end();
