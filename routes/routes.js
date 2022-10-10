@@ -34,12 +34,12 @@ router.get('/create-account', controllers.create_controller);
 //using jsonParser or urlencodedParser below both return an empty object
 
 router.post('/create-account', urlencodedParser, (req, res) => {
-    //var user_name = req.body.username
-    console.log(req.body);
-    // var data = req.body;
-    // console.log(data);
-//     var password = req.body.password;
-//     addRow(user_name, password)
+    let username = req.body.username
+    let password = req.body.password;
+    console.log(req.body.password);
+    
+    
+    { addRow }(username, password)
 
 // intent: starting on line 30 we are trying to grab a hold of the username and password coming from the 
 // frontEnd create profile.js/ after we grab those var's and their values, we can use this statement ==>

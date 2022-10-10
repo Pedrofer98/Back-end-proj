@@ -7,30 +7,32 @@ window.onload=function() {
     // console.log(addRowFunction.addRow())
 }
 //userData = {username,password}
-const username = ''
-const password = ''
+let username = ''
+let password = ''
 
 function createAccount(){
-    const username = document.getElementById('username').value
-    const password = document.getElementById('password').value
+    username = document.getElementById('username').value
+    password = document.getElementById('password').value
     console.log(username);
     console.log(password);
     // storing user and pass values in VAR's 
-    IntoDatabase()
+    IntoDatabase(username, password)
 
 }
 
-function IntoDatabase(){
+function IntoDatabase(user, pass){
 
-    // $.post("http://localhost:3000/login")
+    console.log(user)
 
-    $.post("http://localhost:3000/create-account", function (data) {
+    // $.post("http://localhost:3000/create-account", function (data) {
             
-        {username, password}
-    })
+    //     {user, pass}
+
+        $.post( "http://localhost:3000/create-account", { username: user, password: pass } );
+    }
 
         
-};
+;
 
 
 
