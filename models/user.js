@@ -13,7 +13,7 @@ const db = pgp("postgres://postgres:db1@localhost:5432/project");
 
 function addRow(x, y){
   db.none("INSERT INTO users (username, password) VALUES (`${x}`,`${y}`)") // do  correct the syntax for the template literal
-  // ^^ to insert the username into the DB
+  // ^^ to insert the username and password into the DB
 }
 
 //exports = addRow();
