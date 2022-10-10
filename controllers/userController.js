@@ -17,7 +17,7 @@ const home_Controller = (req, res) => {
 }
 
 const create_controller = (req, res) => {
-    res.post()
+    // res.post()
     res.render('create-account', { title: 'Create Account'});
 }
 
