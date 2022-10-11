@@ -22,7 +22,7 @@ function createAccount(){
 
 function IntoDatabase(user, pass){
 
-    console.log(user)
+    //console.log(user)
 
     // $.post("http://localhost:3000/create-account", function (data) {
             
