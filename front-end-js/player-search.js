@@ -42,7 +42,8 @@ async function results(data){
                         <li>Birth date: ${data.birthdate}</li>
                         <li>Height: ${data.height}</li>
                         <li>Team: ${await getTeam(data.team_id)}</li>
-                        <li>stats: ${statsResult.goals}</li> // just reference statsResuslts._____ whaterver state we want.
+                        <li><strong>Goals: ${statsResult.goals}</strong></li>
+                        <li><strong>Assists: ${statsResult.assists}</strong></li>
                         <li>Nationality: ${data.nationality}</li>
                         <li>Birth date: ${data.birthdate}</li>
                     </ul>
