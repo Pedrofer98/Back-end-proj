@@ -38,8 +38,7 @@ router.post('/create-account', urlencodedParser, (req, res) => {
     let password = req.body.password;
     console.log(req.body.password);
     
-    
-    addRow(username, password)
+    { addRow } (username, password)
 
 // intent: starting on line 30 we are trying to grab a hold of the username and password coming from the 
 // frontEnd create profile.js/ after we grab those var's and their values, we can use this statement ==>
