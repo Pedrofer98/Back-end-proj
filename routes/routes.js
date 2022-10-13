@@ -5,6 +5,7 @@ const controllers = require('../controllers/userController');
 const { addRow } = require('../models/user');
 const router = express.Router();
 const bodyParser = require('body-parser')
+const bcrypt = require('bcrypt')
 
 //testing new stuff
 const jsonParser = bodyParser.json();
@@ -26,26 +27,28 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 router.get('/', controllers.home_Controller);
 
+router.get('/sign-in', (req, res) => {
+    
+    res.render('sign-in', { title: 'Sign In'});
+});
+
 router.get('/create-account', controllers.create_controller);
-
-// alternative to router.post
-//app.post("")
-
-//using jsonParser or urlencodedParser below both return an empty object
 
 router.post('/create-account', urlencodedParser, (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
     //console.log(req.body.password);
     try {
-        addRow(username, password)
+        bcrypt.hash(password, 10, (err, hash) => {
+            addRow(username, password)
             res.sendStatus(200)
+        })
+        // addRow(username, password)
+        //     res.sendStatus(200)
         
     } catch (error) {
         console.error(error)
     }
-    
-    
 
 // intent: starting on line 30 we are trying to grab a hold of the username and password coming from the 
 // frontEnd create profile.js/ after we grab those var's and their values, we can use this statement ==>
