@@ -13,8 +13,8 @@ let password = ''
 function createAccount(){
     username = document.getElementById('username').value
     password = document.getElementById('password').value
-    console.log(username);
-    console.log(password);
+    //console.log(username);
+    //console.log(password);
     // storing user and pass values in VAR's 
     IntoDatabase(username, password)
 
@@ -28,7 +28,10 @@ function IntoDatabase(user, pass){
             
     //     {user, pass}
 
-        $.post( "http://localhost:3000/create-account", { username: user, password: pass } );
+        $.post( "http://localhost:3000/create-account", { username: user, password: pass } )
+        .then(()=>{
+            return
+        })
     }
 
         
