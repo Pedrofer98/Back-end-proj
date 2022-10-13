@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Head--> <%- include('./partials/head.ejs') %>
-
+  <!-- Head--> <%- include('./partials/head.ejs') %>
 <body>
 <!-- Navbar--> <%- include('./partials/nav.ejs') %>
 
@@ -9,14 +8,14 @@
 <section class="content">
     <div class="is-centered">
     <br>
-    <h1><center>Create account</center></h1>
+    <h1><center>Sign in</center></h1>
         
             <div class="form" >
                 <label for="username"><b>Username</b></label>
-                <input type="text" id="username" placeholder="Enter Username" name="username" required>
+                <input type="text" id="username-in" placeholder="Enter Username" name="username" required>
 
                 <label for="psw"><b>Password</b></label>
-                <input type="password" id="password" placeholder="Enter Password" name="psw" required>
+                <input type="password" id="password-in" placeholder="Enter Password" name="psw" required>
 
                 <button id="create-btn">Submit</button>
             </div>
@@ -29,6 +28,8 @@
     </div>
 </section>
 <!-- End of Content -->
+
 <!-- Footer--><%- include('./partials/foot.ejs') %>
+
 </body>
 </html>
